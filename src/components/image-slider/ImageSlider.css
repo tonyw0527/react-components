@@ -1,9 +1,10 @@
 .wrapper {
     position: relative;
-    display: flex;
     width: 300px;
     height: 300px;
     overflow: hidden;
+    display: flex;
+
 }
 
 .imageContainer {
@@ -23,4 +24,11 @@
     top: 50%;
     right: 5px;
     cursor: pointer;
+}
+
+.radioButton {
+    position: absolute;
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%);
 }

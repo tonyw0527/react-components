@@ -56,6 +56,16 @@ const ImageSlider = () => {
                     imageContainerRef.current.style.transform = `translateX(${pos_x})`
                     setImgIndex(ImgIndex + 1);
                 }}>&gt;</button>
+                <div className="radioButton">
+                    {
+                        images.map((item, index) => {
+                            const checked = ImgIndex === index ? true : false;
+                            return (
+                                <input type="radio" checked={checked} key={index} readOnly />
+                            );
+                        })
+                    }
+                </div>
             </div>
             
         
