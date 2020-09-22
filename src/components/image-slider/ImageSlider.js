@@ -36,7 +36,6 @@ const ImageSlider = () => {
                 <button className="left" onClick={() => {
                     if (ImgIndex === 0) {
                         const pos_x = (-img_width * (images.length-1)) +'px';
-                        console.log(pos_x);
                         imageContainerRef.current.style.transform = `translateX(${pos_x})`
                         setImgIndex(images.length-1);
                         return;
