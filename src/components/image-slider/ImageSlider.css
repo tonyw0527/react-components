@@ -15,10 +15,12 @@
     position: absolute;
     top: 50%;
     left: 5px;
+    cursor: pointer;
 }
 
 .right {
     position: absolute;
     top: 50%;
     right: 5px;
+    cursor: pointer;
 }
