@@ -1,0 +1,23 @@
+.modal-box {
+    position: relative;
+    width: 30px;
+    height: 20px;
+}
+
+.modal-button {
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: none;
+    z-index: 1;
+    width: 20vw;
+    border: 2px solid black;
+    border-radius: 8px;
+    background-color: antiquewhite;
+}
