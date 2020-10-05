@@ -1,12 +1,12 @@
 .modal-box {
     position: relative;
     width: 30px;
-    height: 20px;
+    height: 30px;
 }
 
 .modal-button {
     width: 30px;
-    height: 20px;
+    height: 25px;
     cursor: pointer;
 }
 
