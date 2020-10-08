@@ -1,3 +1,10 @@
+.App {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+}
+
 .link {
     margin-right: 8px;
 }
