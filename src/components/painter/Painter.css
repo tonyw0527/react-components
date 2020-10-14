@@ -1,0 +1,13 @@
+.painter-wrapper {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    
+    width: 100vw;
+    height: 100vh;
+}
+
+#myCanvas {
+    border: 1px solid #000000;
+}

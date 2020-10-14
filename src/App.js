@@ -6,6 +6,7 @@ import ImageSlider from './components/image-slider/ImageSlider';
 import Modal from './components/modal/Modal';
 import SideBar from './components/sidebar/SideBar';
 import Chat from './components/chat/Chat';
+import Painter from './components/painter/Painter';
 import ErrorPage from './components/error-page/ErrorPage';
 
 import { Route, Link, Switch } from 'react-router-dom';
@@ -19,6 +20,7 @@ function App() {
                 <Link className="link" to="/modal">Modal</Link>
                 <Link className="link" to="/side-bar">SideBar</Link>
                 <Link className="link" to="/chat">Chat</Link>
+                <Link className="link" to="/painter">Painter</Link>
             </div>
             <Switch>
                 <Route path="/" component={Home} exact />
@@ -26,6 +28,7 @@ function App() {
                 <Route path="/modal" component={Modal} exact />
                 <Route path="/side-bar" component={SideBar} exact />
                 <Route path="/chat" component={Chat} exact />
+                <Route path="/painter" component={Painter} exact />
                 <Route component={ErrorPage} />
             </Switch>
         </div>
