@@ -124,9 +124,9 @@ const Painter = () => {
             myCanvas.removeEventListener('mouseup', mouseupListener);
             myCanvas.removeEventListener('mouseout', mouseoutListener);
 
-            myCanvas.addEventListener("touchstart", touchstartListener);
-            myCanvas.addEventListener("touchend", touchendListener);
-            myCanvas.addEventListener("touchmove", touchmoveListener);
+            myCanvas.removeEventListener("touchstart", touchstartListener);
+            myCanvas.removeEventListener("touchend", touchendListener);
+            myCanvas.removeEventListener("touchmove", touchmoveListener);
         }
     }, [Eraser_flag])
 
