@@ -5,7 +5,27 @@ const Painter = () => {
 
     const [Eraser_flag, setEraser_flag] = useState(false);
 
-    const myCanvasRef = useRef()
+    const myCanvasRef = useRef();
+    const wrapperRef = useRef();
+
+    useEffect(() => {
+        // ideal ref is the app's the highest component. but simply, used wrapper ref here.
+        wrapperRef.current.addEventListener("touchstart", function (e) {
+            if (e.target === wrapperRef.current) {
+            e.preventDefault();
+            }
+        }, false);
+        wrapperRef.current.addEventListener("touchend", function (e) {
+            if (e.target === wrapperRef.current) {
+            e.preventDefault();
+            }
+        }, false);
+        wrapperRef.current.addEventListener("touchmove", function (e) {
+            if (e.target === wrapperRef.current) {
+            e.preventDefault();
+            }
+        }, false);
+    }, [])
 
     useEffect(() => {
         const myCanvas = myCanvasRef.current;
@@ -68,21 +88,50 @@ const Painter = () => {
             drawing('out', e);
         }
 
+        const touchstartListener = (e) => {
+            const touch = e.touches[0];
+            const mouseEvent = new MouseEvent("mousedown", {
+            clientX: touch.clientX,
+            clientY: touch.clientY
+            });
+            myCanvas.dispatchEvent(mouseEvent);
+        }
+        const touchendListener = (e) => {
+            const mouseEvent = new MouseEvent("mouseup", {});
+            myCanvas.dispatchEvent(mouseEvent);
+        }
+        const touchmoveListener = (e) => {
+            const touch = e.touches[0];
+            const mouseEvent = new MouseEvent("mousemove", {
+            clientX: touch.clientX,
+            clientY: touch.clientY
+            });
+            myCanvas.dispatchEvent(mouseEvent);
+        }
+
         myCanvas.addEventListener('mousedown', mousedownListener);
         myCanvas.addEventListener('mousemove', mousemoveListener);
         myCanvas.addEventListener('mouseup', mouseupListener);
         myCanvas.addEventListener('mouseout', mouseoutListener);
+
+        myCanvas.addEventListener("touchstart", touchstartListener);
+        myCanvas.addEventListener("touchend", touchendListener);
+        myCanvas.addEventListener("touchmove", touchmoveListener);
 
         return () => {
             myCanvas.removeEventListener('mousedown', mousedownListener);
             myCanvas.removeEventListener('mousemove', mousemoveListener);
             myCanvas.removeEventListener('mouseup', mouseupListener);
             myCanvas.removeEventListener('mouseout', mouseoutListener);
+
+            myCanvas.addEventListener("touchstart", touchstartListener);
+            myCanvas.addEventListener("touchend", touchendListener);
+            myCanvas.addEventListener("touchmove", touchmoveListener);
         }
     }, [Eraser_flag])
 
     return (
-        <div className="painter-wrapper">
+        <div ref={wrapperRef} className="painter-wrapper">
         <canvas ref={myCanvasRef} id="myCanvas" width="300" height="300">Error</canvas>
         <button type="button" onClick={() => {
             myCanvasRef.current.getContext('2d').clearRect(0,0,myCanvasRef.current.width,myCanvasRef.current.height);
