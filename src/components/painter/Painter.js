@@ -6,22 +6,20 @@ const Painter = () => {
     const [Eraser_flag, setEraser_flag] = useState(false);
 
     const myCanvasRef = useRef();
-    const wrapperRef = useRef();
 
     useEffect(() => {
-        // ideal ref is the app's the highest component. but simply, used wrapper ref here.
-        wrapperRef.current.addEventListener("touchstart", function (e) {
-            if (e.target === wrapperRef.current) {
+        myCanvasRef.current.addEventListener("touchstart", function (e) {
+            if (e.target === myCanvasRef.current) {
             e.preventDefault();
             }
         }, false);
-        wrapperRef.current.addEventListener("touchend", function (e) {
-            if (e.target === wrapperRef.current) {
+        myCanvasRef.current.addEventListener("touchend", function (e) {
+            if (e.target === myCanvasRef.current) {
             e.preventDefault();
             }
         }, false);
-        wrapperRef.current.addEventListener("touchmove", function (e) {
-            if (e.target === wrapperRef.current) {
+        myCanvasRef.current.addEventListener("touchmove", function (e) {
+            if (e.target === myCanvasRef.current) {
             e.preventDefault();
             }
         }, false);
@@ -131,7 +129,7 @@ const Painter = () => {
     }, [Eraser_flag])
 
     return (
-        <div ref={wrapperRef} className="painter-wrapper">
+        <div className="painter-wrapper">
         <canvas ref={myCanvasRef} id="myCanvas" width="300" height="300">Error</canvas>
         <button type="button" onClick={() => {
             myCanvasRef.current.getContext('2d').clearRect(0,0,myCanvasRef.current.width,myCanvasRef.current.height);
