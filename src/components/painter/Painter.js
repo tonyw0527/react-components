@@ -33,7 +33,7 @@ const Painter = () => {
         if(Eraser_flag === false) {
             myCtx.fillStyle = 'black';
             myCtx.strokeStyle = 'black';
-            myCtx.lineWidth = 3;
+            myCtx.lineWidth = 15;
         } else {
             myCtx.fillStyle = 'white';
             myCtx.strokeStyle = 'white';
@@ -42,7 +42,7 @@ const Painter = () => {
         
         const rectWidth = 3;
         myCtx.lineJoin = 'round';
-        myCtx.lienCap = 'round';
+        myCtx.lineCap = 'round';
 
         let prevX = 0;
         let prevY = 0;
