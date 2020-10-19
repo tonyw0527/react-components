@@ -4,10 +4,11 @@ import './Painter.css';
 const Painter = () => {
 
     const [Eraser_flag, setEraser_flag] = useState(false);
-
+    
     const myCanvasRef = useRef();
 
     useEffect(() => {
+        // preventing to scroll during drawing in mobile.
         myCanvasRef.current.addEventListener("touchstart", function (e) {
             if (e.target === myCanvasRef.current) {
             e.preventDefault();
@@ -23,6 +24,7 @@ const Painter = () => {
             e.preventDefault();
             }
         }, false);
+        
     }, [])
 
     useEffect(() => {
@@ -46,8 +48,8 @@ const Painter = () => {
         let prevY = 0;
         let currX = 0;
         let currY = 0;
-        const forXCorrection = myCanvas.getBoundingClientRect().left;
-        const forYCorrection = myCanvas.getBoundingClientRect().top;
+        let forXCorrection = myCanvas.getBoundingClientRect().left;
+        let forYCorrection = myCanvas.getBoundingClientRect().top;
 
         let path_flag = false;
         const drawing = (type, e) => {
@@ -69,6 +71,11 @@ const Painter = () => {
                 path_flag = false;
             }
         }
+
+        window.addEventListener('resize', ()=> {
+            forXCorrection = myCanvas.getBoundingClientRect().left;
+            forYCorrection = myCanvas.getBoundingClientRect().top;
+        });
 
         const mousedownListener = (e) => {
             drawing('down', e);
