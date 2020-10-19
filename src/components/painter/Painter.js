@@ -72,11 +72,7 @@ const Painter = () => {
             }
         }
 
-        window.addEventListener('resize', ()=> {
-            forXCorrection = myCanvas.getBoundingClientRect().left;
-            forYCorrection = myCanvas.getBoundingClientRect().top;
-        });
-
+        // event listeners
         const mousedownListener = (e) => {
             drawing('down', e);
         }
@@ -114,6 +110,11 @@ const Painter = () => {
             myCanvas.dispatchEvent(mouseEvent);
         }
 
+        const resizeAndScrollListener = () => {
+            forXCorrection = myCanvas.getBoundingClientRect().left;
+            forYCorrection = myCanvas.getBoundingClientRect().top;
+        };
+
         myCanvas.addEventListener('mousedown', mousedownListener);
         myCanvas.addEventListener('mousemove', mousemoveListener);
         myCanvas.addEventListener('mouseup', mouseupListener);
@@ -122,6 +123,9 @@ const Painter = () => {
         myCanvas.addEventListener("touchstart", touchstartListener);
         myCanvas.addEventListener("touchend", touchendListener);
         myCanvas.addEventListener("touchmove", touchmoveListener);
+
+        window.addEventListener('resize', resizeAndScrollListener);
+        window.addEventListener('scroll', resizeAndScrollListener);
 
         return () => {
             myCanvas.removeEventListener('mousedown', mousedownListener);
@@ -132,6 +136,9 @@ const Painter = () => {
             myCanvas.removeEventListener("touchstart", touchstartListener);
             myCanvas.removeEventListener("touchend", touchendListener);
             myCanvas.removeEventListener("touchmove", touchmoveListener);
+
+            window.addEventListener('resize', resizeAndScrollListener);
+            window.addEventListener('scroll', resizeAndScrollListener);
         }
     }, [Eraser_flag])
 
