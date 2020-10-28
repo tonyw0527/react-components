@@ -1,0 +1,66 @@
+.timing-game-wrapper {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.timing-game-header {
+    margin-bottom: 20px;
+}
+
+.timing-game-main {
+    margin-bottom: 20px;
+}
+
+
+
+
+
+
+/*from stack over flow powerd by br3ntor */
+.ciclegraph {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    margin: calc(40px / 2 + 0px);
+  }
+  
+  .ciclegraph:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 2px solid teal;
+    width: calc(100% - 2px * 2);
+    height: calc(100% - 2px * 2);
+    border-radius: 50%;
+  }
+  
+  .ciclegraph .circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    margin: calc(-40px / 2);
+    background: gray;
+    border-radius: 50%;
+  }
+
+  @media screen and (max-width: 600px) {
+      /*from stack over flow powerd by br3ntor */
+    .ciclegraph {
+        width: 370px;
+        height: 370px;
+        margin: calc(28px / 2 + 0px);
+    }
+    
+    .ciclegraph .circle {
+        width: 28px;
+        height: 28px;
+        margin: calc(-28px / 2);
+    }
+}
+
+

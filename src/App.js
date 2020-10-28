@@ -7,6 +7,7 @@ import Modal from './components/modal/Modal';
 import SideBar from './components/sidebar/SideBar';
 import Chat from './components/chat/Chat';
 import Painter from './components/painter/Painter';
+import TimingGame from './components/timing-game/TimingGame';
 import ErrorPage from './components/error-page/ErrorPage';
 
 import { Route, Link, Switch } from 'react-router-dom';
@@ -21,6 +22,7 @@ function App() {
                 <Link className="link" to="/side-bar">SideBar</Link>
                 <Link className="link" to="/chat">Chat</Link>
                 <Link className="link" to="/painter">Painter</Link>
+                <Link className="link" to="/timing-game">TimingGame</Link>
             </div>
             <Switch>
                 <Route path="/" component={Home} exact />
@@ -29,6 +31,8 @@ function App() {
                 <Route path="/side-bar" component={SideBar} exact />
                 <Route path="/chat" component={Chat} exact />
                 <Route path="/painter" component={Painter} exact />
+                <Route path="/timing-game" component={TimingGame} exact />
+
                 <Route component={ErrorPage} />
             </Switch>
         </div>
