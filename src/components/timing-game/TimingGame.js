@@ -53,6 +53,7 @@ const TimingGame = () => {
                 goalLed.style.backgroundColor = 'purple';
                 setTimeout(()=>{
                     alert('You win!');
+                    console.log('hihi')
                 }, 100);
                 
             } else {
@@ -120,11 +121,12 @@ const TimingGame = () => {
             <div className="timing-game-main">
                 <div className="ciclegraph" ref={graph}>
                     {renderLED()}
-                </div>  
+                </div>
+                <button className="main-start-btn" type="button" onClick={()=>{handleGame()}}>
+                    Go!
+                </button>
             </div>
-            <button type="button" onClick={()=>{handleGame()}}>
-                    Lego
-            </button>
+            
         </div>
     );
 };

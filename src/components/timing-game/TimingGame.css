@@ -3,6 +3,7 @@
     flex-flow: column;
     justify-content: center;
     align-items: center;
+
 }
 
 .timing-game-header {
@@ -10,9 +11,23 @@
 }
 
 .timing-game-main {
+    position: relative;
     margin-bottom: 20px;
 }
 
+.main-start-btn {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;;
+}
+
+.main-start-btn:hover {
+    background-color: yellowgreen;
+}
 
 
 
