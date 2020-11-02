@@ -1,21 +1,26 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './TimingGame.css';
 
 const TimingGame = () => {
 
     const ledLength = 40;
-    let gameSpeed = 15;
+    let gameSpeed = 10;
     let isPlaying = false;
     let play_interval_id = '';
     const goalLedIndex = Math.round(ledLength/2);
     let currLedIndex;
+
+    const limitTime = 10;
+    let timer_interval_id = '';
+
+    const [CurrTime, setCurrTime] = useState(limitTime);
 
     useEffect(() => {
         const goalLed = document.getElementById(goalLedIndex);
         goalLed.style.backgroundColor = 'red'
 
         document.addEventListener('keypress', (e) =>{
-            if(e.code == 'Space'){
+            if(e.code === 'Space'){
                 handleGame();
             }
         });
@@ -47,6 +52,8 @@ const TimingGame = () => {
         if(isPlaying){
             isPlaying = false;
             clearInterval(play_interval_id);
+            clearInterval(timer_interval_id);
+            setCurrTime(limitTime);
 
             if(currLedIndex === goalLedIndex){
                 const goalLed = document.getElementById(goalLedIndex);
@@ -60,6 +67,20 @@ const TimingGame = () => {
                 //alert('Wrong!...')
             }
         } else {
+            let time = CurrTime;
+            timer_interval_id = setInterval(() => {
+                time--;
+                setCurrTime(time);
+
+                if(time === 0) {
+                    alert('Time is up!')
+                    clearInterval(timer_interval_id);
+                    clearInterval(play_interval_id);
+                }
+            }, 1000);
+
+
+
             let i = 0;
             isPlaying = true;
             const goalLed = document.getElementById(goalLedIndex);
@@ -96,6 +117,7 @@ const TimingGame = () => {
                 
                 currLedIndex = i;
                 i++;
+
                 if(i === ledLength){
                     i = 0;
                 };
@@ -107,7 +129,7 @@ const TimingGame = () => {
     const renderLED = () => {
         const LEDArr = [];
         for(let i = 0; i<ledLength; i++){
-            LEDArr.push(<div className="circle" key={i} id={i}>{i}</div>);
+            LEDArr.push(<div className="circle" key={i} id={i}></div>);
         }
 
         return LEDArr;
@@ -122,11 +144,13 @@ const TimingGame = () => {
                 <div className="ciclegraph" ref={graph}>
                     {renderLED()}
                 </div>
-                <button className="main-start-btn" type="button" onClick={()=>{handleGame()}}>
-                    Go!
-                </button>
+                <div className="main-control-box">
+                    <button className="main-start-btn" type="button" onClick={()=>{handleGame()}}>
+                        Go!
+                        <span>{CurrTime}</span>
+                    </button>
+                </div>
             </div>
-            
         </div>
     );
 };
