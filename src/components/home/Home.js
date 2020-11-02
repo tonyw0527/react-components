@@ -4,9 +4,9 @@ import './Home.css';
 const Home = () => {
     
     return (
-        <div>
-            <h1>Welce to tonyw react components</h1>
-
+        <div className="Home-wrapper">
+            <h2>Welcome to tonyw react components</h2>
+            <p>Let's see my react components</p>
 
         </div>
     );

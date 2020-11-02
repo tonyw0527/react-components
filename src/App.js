@@ -15,7 +15,10 @@ import { Route, Link, Switch } from 'react-router-dom';
 function App() {
     return (
         <div className="App">
-            <div>
+            <div className="App-title">
+                <h1>Tonyw React Components</h1>
+            </div>
+            <div className="App-nav">
                 <Link className="link" to="/">Home</Link>
                 <Link className="link" to="/image-slider">ImageSlider</Link>
                 <Link className="link" to="/modal">Modal</Link>
