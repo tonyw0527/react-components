@@ -1,10 +1,16 @@
-.wrapper {
+.Image-slider-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Image-slider-box {
     position: relative;
     width: 300px;
     height: 300px;
     overflow: hidden;
     display: flex;
-
 }
 
 .imageContainer {

@@ -9,7 +9,7 @@ const SideBar = () => {
 
     return (
         <>
-            <button type="button" onClick={(e) => {
+            <button className="sidebar-btn" type="button" onClick={(e) => {
                 if(Flag === false) {
                     sideBarRef.current.style.transform = "translateX(0)";
                     setFlag(true);

@@ -19,7 +19,8 @@ const ImageSlider = () => {
     const [ImgIndex, setImgIndex] = useState(0);
 
     return (
-            <div className="wrapper">
+        <div className="Image-slider-wrapper">
+            <div className="Image-slider-box">
                 <div className="imageContainer" ref={imageContainerRef}>
                     {
                         images.map((image, index) => {
@@ -66,8 +67,7 @@ const ImageSlider = () => {
                     }
                 </div>
             </div>
-            
-        
+        </div>
     );
 };
 
