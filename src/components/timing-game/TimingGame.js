@@ -13,9 +13,12 @@ const TimingGame = () => {
     const limitTime = 10;
     let timer_interval_id = '';
 
+    const timingGameWrapperRef = useRef();
     const [CurrTime, setCurrTime] = useState(limitTime);
 
     useEffect(() => {
+        const timingGameWrapper = timingGameWrapperRef.current;
+
         const goalLed = document.getElementById(goalLedIndex);
         goalLed.style.backgroundColor = 'red'
 
@@ -23,6 +26,17 @@ const TimingGame = () => {
             if(e.code === 'Space'){
                 handleGame();
             }
+        });
+
+        timingGameWrapper.addEventListener('touchstart', (e) =>{
+            e.preventDefault();    
+            handleGame();
+        });
+        timingGameWrapper.addEventListener('touchend', (e) =>{
+            e.preventDefault();    
+        });
+        timingGameWrapper.addEventListener('touchmove', (e) =>{
+            e.preventDefault();    
         });
         
         return () => {
@@ -136,7 +150,7 @@ const TimingGame = () => {
     };
 
     return (
-        <div className="timing-game-wrapper">
+        <div ref={timingGameWrapperRef} className="timing-game-wrapper">
             <div className="timing-game-header">
                 <h1>Timing Game</h1>
             </div>
@@ -145,10 +159,8 @@ const TimingGame = () => {
                     {renderLED()}
                 </div>
                 <div className="main-control-box">
-                    <button className="main-start-btn" type="button" onClick={()=>{handleGame()}}>
-                        Go!
-                        <span>{CurrTime}</span>
-                    </button>
+                    <span>Tap Space!</span>
+                    <span>Time: {CurrTime}</span>
                 </div>
             </div>
         </div>

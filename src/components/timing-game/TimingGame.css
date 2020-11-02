@@ -17,21 +17,13 @@
 
 .main-control-box {
     position: absolute;
-    top: 40%;
-    left: 40%;
-}
-
-.main-start-btn {
+    top: 45%;
+    left: 43%;
     width: 100px;
     height: 100px;
-    border-radius: 50%;;
 }
 
-.main-start-btn:hover {
-    background-color: yellowgreen;
-}
-
-.main-start-btn span {
+.main-control-box span {
     display: block;
     font-size: 1.3rem;
 }
