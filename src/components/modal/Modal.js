@@ -20,7 +20,11 @@ const Modal = () => {
     };
 
     const handleClickInside = () => {
-        modalRef.current.style.display = "block";
+        if (modalRef.current.style.display === "block"){
+            modalRef.current.style.display = "none"
+        } else {
+            modalRef.current.style.display = "block"
+        };
     }
 
     return (
