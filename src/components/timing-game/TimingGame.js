@@ -152,14 +152,14 @@ const TimingGame = () => {
     return (
         <div ref={timingGameWrapperRef} className="timing-game-wrapper">
             <div className="timing-game-header">
-                <h1>Timing Game</h1>
+                <h2>Timing Game</h2>
             </div>
             <div className="timing-game-main">
                 <div className="ciclegraph" ref={graph}>
                     {renderLED()}
                 </div>
                 <div className="main-control-box">
-                    <span>Tap Space!</span>
+                    <span>Tap Space, Or touch!</span>
                     <span>Time: {CurrTime}</span>
                 </div>
             </div>

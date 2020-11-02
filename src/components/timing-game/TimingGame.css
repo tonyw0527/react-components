@@ -17,8 +17,8 @@
 
 .main-control-box {
     position: absolute;
-    top: 45%;
-    left: 43%;
+    top: 40%;
+    left: 41%;
     width: 100px;
     height: 100px;
 }
@@ -62,11 +62,12 @@
     border-radius: 50%;
   }
 
+  /*from stack over flow powerd by br3ntor */
   @media screen and (max-width: 600px) {
-      /*from stack over flow powerd by br3ntor */
+      
     .ciclegraph {
-        width: 370px;
-        height: 370px;
+        width: 340px;
+        height: 340px;
         margin: calc(28px / 2 + 0px);
     }
     

@@ -10,10 +10,12 @@
 
 .App-nav {
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
     margin-bottom: 10px;
     padding: 10px;
     background-color: #f1f6f9;
-    text-align: center;
+    
 }
 
 .App-nav .link {

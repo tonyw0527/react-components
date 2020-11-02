@@ -56,6 +56,8 @@ const Painter = () => {
 
         const myCanvas = myCanvasRef.current;
         const myCtx = myCanvas.getContext('2d');
+        myCtx.canvas.width  = window.innerWidth - 50;
+        myCtx.canvas.height = window.innerHeight - 150;
 
         let prevX = 0;
         let prevY = 0;
@@ -184,7 +186,7 @@ const Painter = () => {
                 <h2>Painter</h2>
             </div>
             <div className="painter-drawing-box">
-                <canvas ref={myCanvasRef} id="myCanvas" width="500" height="500">Error</canvas>
+                <canvas ref={myCanvasRef} id="myCanvas" >Error</canvas>
             </div>
             <div className="painter-tool-box">
                 <button className="reset" type="button" onClick={() => {
