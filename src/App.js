@@ -28,7 +28,7 @@ function App() {
                 <Link className="link" to="/timing-game">TimingGame</Link>
             </div>
             <Switch>
-                <Route path="/" component={Home} exact />
+                <Route path="/react-components" component={Home} exact />
                 <Route path="/image-slider" component={ImageSlider} exact />
                 <Route path="/modal" component={Modal} exact />
                 <Route path="/side-bar" component={SideBar} exact />

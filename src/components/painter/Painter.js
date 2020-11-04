@@ -25,9 +25,6 @@ const Painter = () => {
     // canvas init
     useEffect(() => {
         const myCanvas = myCanvasRef.current;
-        const myCtx = myCanvas.getContext('2d');
-        myCtx.fillStyle = 'white';
-        myCtx.fillRect(0,0,myCanvasRef.current.width,myCanvasRef.current.height);
 
         myCanvas.addEventListener("touchstart", function (e) {
             if (e.target === myCanvasRef.current) {
@@ -58,6 +55,8 @@ const Painter = () => {
         const myCtx = myCanvas.getContext('2d');
         myCtx.canvas.width  = window.innerWidth - 50;
         myCtx.canvas.height = window.innerHeight - 150;
+        myCtx.fillStyle = 'white';
+        myCtx.fillRect(0,0,myCtx.canvas.width,myCtx.canvas.height);
 
         let prevX = 0;
         let prevY = 0;
