@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useRef} from 'react';
 import './Painter.css';
 
-import { WHITE_PNG, WorkMemory, canvasImgSetting } from '../../utils/utils';
+import { WorkMemory, canvasImgSetting } from '../../utils/utils';
 
 const workMemory = new WorkMemory();
 
@@ -30,6 +30,9 @@ const Painter = () => {
         myCtx.canvas.height = window.innerHeight - 150;
         myCtx.fillStyle = 'white';
         myCtx.fillRect(0,0,myCtx.canvas.width,myCtx.canvas.height);
+
+        const cacheImage = myCanvasRef.current.toDataURL();
+        workMemory.init(cacheImage);
 
         myCanvas.addEventListener("touchstart", function (e) {
             if (e.target === myCanvasRef.current) {
@@ -252,7 +255,7 @@ const Painter = () => {
                     Next
                 </button>
                 <button>
-                    <a ref={saveAnchorRef} href={WHITE_PNG} 
+                    <a ref={saveAnchorRef} href={''} 
                         onClick={()=>{
                             const url = myCanvasRef.current.toDataURL("image/png");
                             const link = saveAnchorRef.current;
