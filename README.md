@@ -1,6 +1,15 @@
-# Tonyw's React Components
+# Tonyw's React Send Box
 
-- This is my custom react components repository.
-- I will add more react components.
+- This repository has my custom react components, hooks, utils, and etc.
 - Happy coding!
 - Look here! https://tonyw0527.github.io/react-components/
+
+## How to use
+
+- clone
+
+```sh
+$ git clone https://github.com/tonyw0527/react-sendbox
+```
+
+- choose anything you want to use in src directory.
