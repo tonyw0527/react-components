@@ -58,4 +58,4 @@ const scrollToBottom = (ref) => {
 };
 
 
-export { WHITE_PNG, WorkMemory, canvasImgSetting, scrollToBottom };
+export { WorkMemory, canvasImgSetting, scrollToBottom };
