@@ -1,5 +1,5 @@
 // setting a image into canvas
-const canvasImgSetting = (canvas, src) => {
+const canvasImgSetting = (canvas: any, src: any) => {
     const image = new Image();
     image.src = src;
     image.onload = () => {
@@ -7,15 +7,17 @@ const canvasImgSetting = (canvas, src) => {
     }
 }
 
-// work restoring
+// work restoring for do & undo
 class WorkMemory {
+  work_stack: Array<any>;
+  tmp_stack: Array<any>;
 
     constructor() {
         this.work_stack = [];
         this.tmp_stack = [];
     }
 
-    saving(work) {
+    saving(work: any) {
         if(this.tmp_stack.length !== 0) {
             this.tmp_stack = [];
         }
@@ -26,7 +28,7 @@ class WorkMemory {
         }
     }
 
-    moveToPrev(callback) {
+    moveToPrev(callback: any) {
         if(this.work_stack.length === 1){
             return 'end';
         }
@@ -37,7 +39,7 @@ class WorkMemory {
         callback(prevWork);
     }
 
-    moveToNext(callback) {
+    moveToNext(callback: any) {
         if(this.tmp_stack.length === 0) {
             return 'end';
         }
@@ -47,13 +49,13 @@ class WorkMemory {
         callback(nextWork);
     }
 
-    init(init_image) {
+    init(init_image: any) {
         this.work_stack = [init_image];
         this.tmp_stack = [];
     }
 }
 
-const scrollToBottom = (ref) => {
+const scrollToBottom = (ref: any) => {
     ref.current.scrollTop = ref.current.scrollHeight;
 };
 

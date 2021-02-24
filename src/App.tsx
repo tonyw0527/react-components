@@ -1,5 +1,6 @@
 import React from "react";
-import "./App.css";
+import { Route, Link, Switch } from "react-router-dom";
+import styled from "styled-components";
 
 import Home from "./components/home/Home";
 import ImageSlider from "./components/image-slider/ImageSlider";
@@ -10,49 +11,61 @@ import Painter from "./components/painter/Painter";
 import TimingGame from "./components/timing-game/TimingGame";
 import NotFound from "./pages/404/NotFound";
 
-import { Route, Link, Switch } from "react-router-dom";
+const Container = styled.div`
+  width: 100vw;
+`;
+const Header = styled.header``;
+const Title = styled.h1`
+  margin-bottom: 0.4rem;
+`;
+const LinkBox = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+`;
 
 function App() {
   return (
-    <div className="App">
-      <div className="App-title">
-        <h1>Tonyw React Components</h1>
-      </div>
-      <div className="App-nav">
-        <Link className="link" to="/">
-          Home
-        </Link>
-        <Link className="link" to="/image-slider">
-          ImageSlider
-        </Link>
-        <Link className="link" to="/modal">
-          Modal
-        </Link>
-        <Link className="link" to="/side-bar">
-          SideBar
-        </Link>
-        <Link className="link" to="/chat">
-          Chat
-        </Link>
-        <Link className="link" to="/painter">
-          Painter
-        </Link>
-        <Link className="link" to="/timing-game">
-          TimingGame
-        </Link>
-      </div>
+    <Container>
+      <Header>
+        <Title>Tonyw React SendBox</Title>
+
+        <LinkBox>
+          <Link className="link" to="/">
+            Home
+          </Link>
+          <Link className="link" to="/image-slider">
+            ImageSlider
+          </Link>
+          <Link className="link" to="/modal">
+            Modal
+          </Link>
+          <Link className="link" to="/side-bar">
+            SideBar
+          </Link>
+          <Link className="link" to="/chat">
+            Chat
+          </Link>
+          <Link className="link" to="/painter">
+            Painter
+          </Link>
+          <Link className="link" to="/timing-game">
+            TimingGame
+          </Link>
+        </LinkBox>
+      </Header>
       <Switch>
         <Route path="/" component={Home} exact />
-        <Route path="/image-slider" component={ImageSlider} exact />
-        <Route path="/modal" component={Modal} exact />
-        <Route path="/side-bar" component={SideBar} exact />
-        <Route path="/chat" component={Chat} exact />
-        <Route path="/painter" component={Painter} exact />
-        <Route path="/timing-game" component={TimingGame} exact />
+        <Route path="/image-slider" component={ImageSlider} />
+        <Route path="/modal" component={Modal} />
+        <Route path="/side-bar" component={SideBar} />
+        <Route path="/chat" component={Chat} />
+        <Route path="/painter" component={Painter} />
+        <Route path="/timing-game" component={TimingGame} />
 
         <Route component={NotFound} />
       </Switch>
-    </div>
+    </Container>
   );
 }
 
