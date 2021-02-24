@@ -9,7 +9,7 @@
 - clone
 
 ```sh
-$ git clone https://github.com/tonyw0527/react-sendbox
+$ git clone https://github.com/tonyw0527/react-sandbox
 ```
 
 - choose anything you want to use in src directory.
