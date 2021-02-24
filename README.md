@@ -1,4 +1,4 @@
-# Tonyw's React Send Box
+# Tonyw's React Sand Box
 
 - This repository has my custom react components, hooks, utils, and etc.
 - Happy coding!
