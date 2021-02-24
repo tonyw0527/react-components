@@ -28,7 +28,7 @@ function App() {
   return (
     <Container>
       <Header>
-        <Title>Tonyw React SendBox</Title>
+        <Title>Tonyw React SandBox</Title>
 
         <LinkBox>
           <Link className="link" to="/">
